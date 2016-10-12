@@ -1,16 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib tagdir="/WEB-INF/tags/templates" prefix="myTags"%>
 
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-	<body>
-		<h2><s:message code="welcome.message" /></h2>
-		<a href="<c:url value="/testController"/>">Go to test page!</a>
-	</body>
-</html>
+<myTags:general>
+	<h2><s:message code="welcome.message" /></h2>
+	<a href="<c:url value="/testController"/>">Go to test page!</a>
+</myTags:general>
+
