@@ -4,7 +4,7 @@
 <%@ page isELIgnored="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
 <templates:general>
-	<p>The selected categoryId is: ${categoryId}</p>
+	<p>Imagine this is the cart page :D</p>
 </templates:general>

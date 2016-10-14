@@ -6,5 +6,5 @@
     pageEncoding="UTF-8"%>
 
 <templates:general>
-	<p>The selected categoryId is: ${categoryId}</p>
+	<p>confirmation page</p>
 </templates:general>

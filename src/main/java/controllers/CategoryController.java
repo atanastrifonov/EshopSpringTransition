@@ -13,7 +13,7 @@ public class CategoryController {
 	@RequestMapping(value="/category/{categoryId}", method=GET)
 	public String showCategory(@PathVariable("categoryId") int categoryId, Model model){
 		
-		//TODO: get the selected category, put its product into the model
+		//TODO: get the selected category, put its products into the model
 		
 		//testing the path parameter
 		model.addAttribute(categoryId);
