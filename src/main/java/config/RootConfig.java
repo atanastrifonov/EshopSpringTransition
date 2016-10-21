@@ -20,5 +20,4 @@ public class RootConfig {
 		messageSource.setBasename("messages");
 		return messageSource;
 	}
-	
 }
