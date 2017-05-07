@@ -14,7 +14,7 @@ import entity.Category;
 
 @Repository
 @Transactional
-public class TestRepositoryImpl implements TestRepository {
+public class CategoryRepositoryImpl implements CategoryRepository {
 
 	@PersistenceUnit
 	private EntityManagerFactory emf;

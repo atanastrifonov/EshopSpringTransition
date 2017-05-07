@@ -4,6 +4,6 @@ import java.util.List;
 
 import entity.Category;
 
-public interface TestRepository {
+public interface CategoryRepository {
 	public List<Category> findAllCategories();
 }
