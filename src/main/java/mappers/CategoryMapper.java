@@ -12,6 +12,7 @@ public class CategoryMapper {
 
 		for (Category category : categoryEntities) {
 			CategoryData categoryData = new CategoryData();
+			categoryData.setId(category.getId());
 			categoryData.setName(category.getName());
 			result.add(categoryData);
 		}
