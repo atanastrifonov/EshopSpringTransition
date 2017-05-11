@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CartController {
-	
+//kogato implementiram ShoppingCart -> str. 82 3.4.1 Session and Request scoping beans	
 	@RequestMapping(value="/viewCart", method=RequestMethod.GET)
 	public String viewCart (Model model){
 		return "cart";

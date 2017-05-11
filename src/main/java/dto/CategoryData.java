@@ -4,6 +4,15 @@ public class CategoryData {
 	
 	private short id;
 	private String name;
+	
+	public CategoryData(){
+		
+	}
+	
+	public CategoryData(short id, String name){
+		this.id = id;
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;

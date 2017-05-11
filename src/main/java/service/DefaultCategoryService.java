@@ -15,6 +15,11 @@ public class DefaultCategoryService implements CategoryService {
 	CategoryRepository categoryRepository;
 
 	@Override
+	public Category getCategoryById(Short id) {
+		return categoryRepository.getCategoryById(id);
+	}
+
+	@Override
 	public List<Category> getAllCategories() {
 		return categoryRepository.findAllCategories();
 	}

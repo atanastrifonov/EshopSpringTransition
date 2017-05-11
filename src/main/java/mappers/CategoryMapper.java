@@ -7,14 +7,21 @@ import dto.CategoryData;
 import entity.Category;
 
 public class CategoryMapper {
-	public static List<CategoryData> map(List<Category> categoryEntities) {
+	
+	public static CategoryData mapSingle(Category categoryModel) {
+		CategoryData categoryData = new CategoryData();
+		
+		categoryData.setId(categoryModel.getId());
+		categoryData.setName(categoryModel.getName());
+		
+		return categoryData;
+	}
+
+	public static List<CategoryData> mapCollection(List<Category> categoryModels) {
 		List<CategoryData> result = new ArrayList<>();
 
-		for (Category category : categoryEntities) {
-			CategoryData categoryData = new CategoryData();
-			categoryData.setId(category.getId());
-			categoryData.setName(category.getName());
-			result.add(categoryData);
+		for (Category categoryModel : categoryModels) {
+			result.add(mapSingle(categoryModel));
 		}
 
 		return result;

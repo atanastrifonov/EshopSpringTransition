@@ -21,10 +21,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 				.and()
 				.authorizeRequests().antMatchers("/testController").hasRole("ADMIN")
-				.anyRequest().permitAll()
-				.and()
-				.requiresChannel()
-					.antMatchers("/category/*").requiresSecure();
+				.anyRequest().permitAll();
+//				.and()
+//				.requiresChannel()
+//					.antMatchers("/category/*").requiresSecure();
 
 		// .and().requiresChannel().antMatchers("/login").requiresSecure()
 

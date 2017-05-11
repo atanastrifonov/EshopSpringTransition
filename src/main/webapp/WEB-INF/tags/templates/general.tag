@@ -15,11 +15,12 @@ UNCOMMENT WHEN LANGUAGE TOGGLE IS READY -->
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/eshop.css">
-        <link rel="shortcut icon" href="img/favicon.ico">
+		
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/eshop.css"/>">      
+        <link rel="shortcut icon" href="<c:url value="/img/favicon.ico"/>">
         
-        <script src="js/jquery-1.4.2.js" type="text/javascript"></script>
-        <script src="js/jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
+        <script src="<c:url value="/js/jquery-1.4.2.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/js/jquery-ui-1.8.4.custom.min.js"/>" type="text/javascript"></script>
         
         <script type="text/javascript">
             $(document).ready(function(){

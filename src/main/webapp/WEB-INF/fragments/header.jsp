@@ -167,8 +167,8 @@ UNCOMMENT WHEN LANGUAGE TOGGLE AND SHOPPING CART ARE READY -->
 	</div>
 
     <a href="<c:url value='/'/>">
-        <img src="img/logo.png" id="logo" alt="Eshop logo">
+        <img src="<c:url value='/img/logo.png'/>" id="logo" alt="Eshop logo">
     </a>
 
-    <img src="img/logoText.png" id="logoText" alt="the eshop app">
+    <img src="<c:url value='/img/logoText.png'/>" id="logoText" alt="the eshop app">
 </div>
