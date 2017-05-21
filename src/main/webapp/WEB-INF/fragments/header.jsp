@@ -1,9 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div id="header">
 	<div id="widgetBar">
-<!-- UNCOMMENT WHEN LANGUAGE TOGGLE AND SHOPPING CART ARE READY 
+
 		<div class="headerWidget">
 		  <%-- If servlet path contains '/confirmation', do not display language toggle --%>
 		  <c:if test="${!fn:contains(pageContext.request.servletPath,'/confirmation')}">
@@ -17,7 +18,7 @@
 		            english
 		          </c:when>
 		          <c:otherwise>
-		            <c:url var="url" value="chooseLanguage">
+		            <c:url var="url" value="/chooseLanguage">
 		              <c:param name="language" value="en"/>
 		            </c:url>
 		            <div class="bubble"><a href="${url}">english</a></div>
@@ -29,7 +30,7 @@
 		            bulgarian
 		          </c:when>
 		          <c:otherwise>
-		            <c:url var="url" value="chooseLanguage">
+		            <c:url var="url" value="/chooseLanguage">
 		              <c:param name="language" value="bg"/>
 		            </c:url>
 		            <div class="bubble"><a href="${url}">bulgarian</a></div>
@@ -44,7 +45,7 @@
 		            english
 		          </c:when>
 		          <c:otherwise>
-		            <c:url var="url" value="chooseLanguage">
+		            <c:url var="url" value="/chooseLanguage">
 		              <c:param name="language" value="en"/>
 		            </c:url>
 		            <div class="bubble"><a href="${url}">english</a></div>
@@ -56,7 +57,7 @@
 		            bulgarian
 		          </c:when>
 		          <c:otherwise>
-		            <c:url var="url" value="chooseLanguage">
+		            <c:url var="url" value="/chooseLanguage">
 		              <c:param name="language" value="bg"/>
 		            </c:url>
 		            <div class="bubble"><a href="${url}">bulgarian</a></div>
@@ -66,7 +67,7 @@
 		    </c:choose>
 		  </c:if>
 		</div>
-
+<!-- UNCOMMENT WHEN SHOPPING CART IS READY 
 		<%-- checkout widget --%>
 		<div class="headerWidget">
 		
@@ -163,7 +164,7 @@
 		    </a>
 		  </c:if>
 		</div>
-UNCOMMENT WHEN LANGUAGE TOGGLE AND SHOPPING CART ARE READY -->
+UNCOMMENT WHEN SHOPPING CART IS READY  -->
 	</div>
 
     <a href="<c:url value='/'/>">

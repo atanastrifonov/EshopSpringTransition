@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib tagdir="/WEB-INF/tags/templates" prefix="templates"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
@@ -19,9 +19,9 @@
 
 	<div id="indexLeftColumn">
 	    <div id="welcomeText">
-	        <p style="font-size: larger"><s:message code="greeting"/></p>
+	        <p style="font-size: larger"><fmt:message key="greeting"/></p>
 	
-	        <p><s:message code="introText"/></p>
+	        <p><fmt:message key='introText'/></p>
 	    </div>
 	</div>
 
@@ -30,10 +30,10 @@
 	        <div class="categoryBox">
 	            <a href="<c:url value='category/${category.id}'/>">
 	                <span class="categoryLabel"></span>
-	                <span class="categoryLabelText"><s:message code="${category.name}"/></span>
+	                <span class="categoryLabelText"><fmt:message key="${category.name}"/></span>
 	
 	                <img src="${initParam.categoryImagePath}${category.name}.jpg"
-	                     alt="<s:message code='${category.name}'/>" class="categoryImage">
+	                     alt="<fmt:message key='${category.name}'/>" class="categoryImage">
 	            </a>
 	        </div>
 	    </c:forEach>

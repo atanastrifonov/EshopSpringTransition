@@ -1,13 +1,13 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!-- UNCOMMENT WHEN LANGUAGE TOGGLE IS READY 
-	<%-- Set language based on user's choice --%>
-	<c:if test="${!empty language}">
-	    <fmt:setLocale value="${language}" scope="session" />
-	</c:if>
-UNCOMMENT WHEN LANGUAGE TOGGLE IS READY -->
+
+<%-- Set language based on user's choice --%>
+<c:if test="${!empty language}">
+    <fmt:setLocale value="${language}" scope="session" />
+</c:if>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,7 +46,7 @@ UNCOMMENT WHEN LANGUAGE TOGGLE IS READY -->
             });
         </script>
         
-        <title><s:message code="tab.title" /></title>
+        <title><fmt:message key='title' /></title>
 	</head>
 	<body>
 		<div id="main">
