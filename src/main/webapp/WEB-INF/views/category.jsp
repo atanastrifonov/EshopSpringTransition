@@ -60,10 +60,13 @@
 	                <td><fmt:formatNumber type="currency" currencySymbol="&euro; " value="${product.price}"/></td>
 	
 	                <td>
-	                    <form action="<c:url value='addToCart'/>" method="post">
+	                    <form action="<c:url value='/addToCart'/>" method="post">
 	                        <input type="hidden"
 	                               name="productId"
 	                               value="${product.id}">
+                           	<input type="hidden"  
+                           		   name="${_csrf.parameterName}"   
+                           		   value="${_csrf.token}"/>
 	                        <input type="submit"
 	                               name="submit"
 	                               value="<fmt:message key='addToCart'/>">

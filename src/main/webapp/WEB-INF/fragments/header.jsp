@@ -67,7 +67,7 @@
 		    </c:choose>
 		  </c:if>
 		</div>
-<!-- UNCOMMENT WHEN SHOPPING CART IS READY 
+
 		<%-- checkout widget --%>
 		<div class="headerWidget">
 		
@@ -110,10 +110,8 @@
 			              requestScope['javax.servlet.forward.servlet_path'] ne '/checkout' &&
 			
 			              !fn:contains(pageContext.request.servletPath,'/cart') &&
-			              requestScope['javax.servlet.forward.servlet_path'] ne '/cart' &&
-			
-			              validationErrorFlag ne true &&
-			              orderFailureFlag ne true}">
+			              requestScope['javax.servlet.forward.servlet_path'] ne '/cart'			
+						 }">
 			
 			    <a href="<c:url value='checkout'/>" class="bubble">
 			      <fmt:message key="proceedCheckout"/>
@@ -124,7 +122,7 @@
     	<%-- shopping cart widget --%>
 		<div class="headerWidget" id="viewCart">
 		
-		  <img src="img/cart.gif" alt="shopping cart icon" id="cart">
+		  <img src="<c:url value='/img/cart.gif'/>" alt="shopping cart icon" id="cart">
 		
 		<%-- If 'numberOfItems' property doesn't exist, or if number of items
 		     in cart is 0, output '0', otherwise output 'numberOfItems' --%>
@@ -159,12 +157,12 @@
 		                !fn:contains(pageContext.request.servletPath,'/cart') &&
 		                requestScope['javax.servlet.forward.servlet_path'] ne '/cart'}">
 		
-		    <a href="<c:url value='viewCart'/>" class="bubble">
+		    <a href="<c:url value='/viewCart'/>" class="bubble">
 		        <fmt:message key="cart" />
 		    </a>
 		  </c:if>
 		</div>
-UNCOMMENT WHEN SHOPPING CART IS READY  -->
+
 	</div>
 
     <a href="<c:url value='/'/>">
