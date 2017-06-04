@@ -10,7 +10,7 @@
 	<%-- Set session-scoped variable to track the view user is coming from.
      This is used by the language mechanism in the Controller so that
      users view the same page when switching between English and Bulgarian. --%>
-	<c:set var='view' value='/cart' scope='session' />
+	<c:set var='view' value='/viewCart' scope='session' />
 
 	<div id="singleColumn">
 	
@@ -41,12 +41,12 @@
 	        <c:set var="value">
 	            <c:choose>
 	                <%-- if 'selectedCategory' session object exists, send user to previously viewed category --%>
-	                <c:when test="${!empty selectedCategory}">
-	                    category
+	                <c:when test="${!empty selectedCategoryURL}">
+	                    ${selectedCategoryURL}
 	                </c:when>
 	                <%-- otherwise send user to welcome page --%>
 	                <c:otherwise>
-	                    home
+	                    /
 	                </c:otherwise>
 	            </c:choose>
 	        </c:set>

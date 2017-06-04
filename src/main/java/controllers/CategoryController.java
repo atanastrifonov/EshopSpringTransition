@@ -2,6 +2,8 @@ package controllers;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,15 +20,15 @@ public class CategoryController {
 	CategoryFacade categoryFacade;
 	
 	@RequestMapping(value="/category/{categoryId}", method=GET)
-	public String showCategory(@PathVariable("categoryId") Short categoryId, Model model){		
-		//Note: I may need to put the selectedCategory
-		//into the session later - for the language toggle functionality
+	public String showCategory(@PathVariable("categoryId") Short categoryId, HttpServletRequest request, Model model){		
 		 
-        // get selected category
+        // get selected category and put it in the model for rendering purposes
         CategoryProductData selectedCategory = categoryFacade.getCategoryProductById(categoryId);
-
-        // place selected category in model (later in session)
         model.addAttribute("selectedCategory", selectedCategory);
+        
+        // put the selected category URL in session for the language toggle functionality
+        String selectedCategoryURL = "/category/" + selectedCategory.getId();
+        request.getSession().setAttribute("selectedCategoryURL", selectedCategoryURL);
 		
 		return "category";
 	}
