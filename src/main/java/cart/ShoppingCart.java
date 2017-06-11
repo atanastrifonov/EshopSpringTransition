@@ -55,12 +55,7 @@ public class ShoppingCart {
      * @param quantity the number which the <code>ShoppingCartItem</code> is updated to
      * @see ShoppingCartItem
      */
-    public synchronized void update(ProductData productData, String quantity) {
-
-        short qty = -1;
-
-        // cast quantity as short
-        qty = Short.parseShort(quantity);
+    public synchronized void update(int productID, short qty) {
 
         if (qty >= 0) {
 
@@ -68,7 +63,7 @@ public class ShoppingCart {
 
             for (ShoppingCartItem scItem : items) {
 
-                if (scItem.getProduct().getId() == productData.getId()) {
+                if (scItem.getProduct().getId() == productID) {
 
                     if (qty != 0) {
                         // set item quantity to new value

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import cart.ShoppingCart;
 import dto.ProductData;
 import facade.ProductFacade;
-import forms.ProductToCartForm;
+import forms.UpdateProductInCartForm;
 
 @Controller
 public class CartController {
@@ -61,8 +61,18 @@ public class CartController {
 	}
 	
 	@RequestMapping(value=("/updateCart"), method=RequestMethod.POST)
-	public String updateCart(@Valid ProductToCartForm productForm, Errors errors){
-		return "";
+	public String updateCart(HttpServletRequest request, @Valid UpdateProductInCartForm productForm, Errors errors){
+		
+		if(errors.hasErrors()){
+			//handle them
+		}
+		
+		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
+		if(cart!=null){
+			cart.update(productForm.getProductID(), productForm.getQuantity());
+		}
+		
+		return "cart";
 	}
 
 }
