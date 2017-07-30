@@ -432,3 +432,12 @@ label.error {
     margin: 0;
     border: none;
 }
+
+.validationError {
+	color: red;
+}
+
+div.validationErrors {
+	background-color: #ffcccc;
+	border: 2px solid red;
+}

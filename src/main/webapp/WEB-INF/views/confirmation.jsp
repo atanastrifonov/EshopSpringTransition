@@ -7,4 +7,10 @@
 
 <templates:general>
 	<p>confirmation page</p>
+		Name : ${name} </br>
+		Email : ${email} </br>
+		Address : ${address} </br>
+		CC Number : ${ccNumber} </br>
+		Phone : ${phone} </br>
+		City Region : ${cityRegion} </br>
 </templates:general>

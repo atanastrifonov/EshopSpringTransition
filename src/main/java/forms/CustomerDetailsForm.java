@@ -6,21 +6,27 @@ import javax.validation.constraints.Size;
 public class CustomerDetailsForm {
 	
 	@NotNull
+	@Size(min=2, max=16, message="{name.size.error}")
 	private String name;
 	
 	@NotNull
+	@Size(min=2, max=16, message="{email.size.error}")
 	private String email;
 	
 	@NotNull
+	@Size(min=2, max=16, message="{phone.size.error}")
 	private String phone;
 	
 	@NotNull
-	@Size(max=100)
+	@Size(min=2, max=16, message="{address.size.error}")
 	private String address;
 	
 	@NotNull
+	@Size(min=1, max=16, message="{city.region.size.error}")
 	private String cityRegion;
 	
+	@NotNull
+	@Size(min=2, max=16, message="{cc.number.size.error}")
 	private String ccNumber;
 
 	public String getName() {

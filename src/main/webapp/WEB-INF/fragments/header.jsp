@@ -113,7 +113,7 @@
 			              requestScope['javax.servlet.forward.servlet_path'] ne '/cart'			
 						 }">
 			
-			    <a href="<c:url value='checkout'/>" class="bubble">
+			    <a href="<c:url value='/checkout'/>" class="bubble">
 			      <fmt:message key="proceedCheckout"/>
 			    </a>
 			</c:if>
