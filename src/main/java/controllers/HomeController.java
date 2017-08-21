@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.ServletContextAware;
 
-import facade.CategoryFacade;
+import facade.capi.CategoryFacade;
 
 @Controller
 public class HomeController implements ServletContextAware {

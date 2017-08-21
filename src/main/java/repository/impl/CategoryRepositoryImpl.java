@@ -1,4 +1,4 @@
-package repository;
+package repository.impl;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entity.Category;
+import repository.capi.CategoryRepository;
 
 @Repository
 @Transactional

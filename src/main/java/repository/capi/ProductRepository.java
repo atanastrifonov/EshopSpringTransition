@@ -1,4 +1,4 @@
-package repository;
+package repository.capi;
 
 import entity.Product;
 

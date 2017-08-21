@@ -1,12 +1,13 @@
-package facade;
+package facade.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import dto.ProductData;
 import entity.Product;
+import facade.capi.ProductFacade;
 import mappers.ProductMapper;
-import service.ProductService;
+import service.capi.ProductService;
 
 @Component
 public class DefaultProductFacade implements ProductFacade{

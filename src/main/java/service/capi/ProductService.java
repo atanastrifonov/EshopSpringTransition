@@ -1,4 +1,4 @@
-package service;
+package service.capi;
 
 import entity.Product;
 

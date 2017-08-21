@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import cart.ShoppingCart;
 import dto.ProductData;
-import facade.ProductFacade;
+import facade.capi.ProductFacade;
 import forms.UpdateProductInCartForm;
 
 @Controller

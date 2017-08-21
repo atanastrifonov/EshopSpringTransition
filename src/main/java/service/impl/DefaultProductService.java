@@ -1,10 +1,11 @@
-package service;
+package service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import entity.Product;
-import repository.ProductRepository;
+import repository.capi.ProductRepository;
+import service.capi.ProductService;
 
 @Component
 public class DefaultProductService implements ProductService{

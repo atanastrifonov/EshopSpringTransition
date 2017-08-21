@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import dto.CategoryProductData;
-import facade.CategoryFacade;
+import facade.capi.CategoryFacade;
 
 @Controller
 public class CategoryController {

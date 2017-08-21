@@ -1,4 +1,4 @@
-package service;
+package service.capi;
 
 import java.util.List;
 import entity.Category;

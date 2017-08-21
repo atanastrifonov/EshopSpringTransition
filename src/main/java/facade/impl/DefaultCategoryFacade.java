@@ -1,4 +1,4 @@
-package facade;
+package facade.impl;
 
 import java.util.List;
 
@@ -8,9 +8,10 @@ import org.springframework.stereotype.Component;
 import dto.CategoryData;
 import dto.CategoryProductData;
 import entity.Category;
+import facade.capi.CategoryFacade;
 import mappers.CategoryMapper;
 import mappers.CategoryProductMapper;
-import service.CategoryService;
+import service.capi.CategoryService;
 
 @Component
 public class DefaultCategoryFacade implements CategoryFacade {
