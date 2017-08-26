@@ -25,7 +25,9 @@ public class CustomerOrderRepositoryImpl implements CustomerOrderRepository {
 
 	@Override
 	public CustomerOrder getOrderById(int orderId) {
-		return em.find(CustomerOrder.class, orderId);
+        CustomerOrder order = em.find(CustomerOrder.class, orderId);
+        em.refresh(order);
+        return order;
 	}
 
 }
