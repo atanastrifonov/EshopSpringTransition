@@ -33,14 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.formLogin()
 				.and()
-				.authorizeRequests().antMatchers("/testController").hasRole("ADMIN")
-				.anyRequest().permitAll()
+				.authorizeRequests()
+					.antMatchers("/testController").hasRole("ADMIN")
+					.anyRequest().permitAll()
 				.and()
-				.requiresChannel().antMatchers("/testController").requiresSecure();
-//					.antMatchers("/category/*").requiresSecure();
-
-		// .and().requiresChannel().antMatchers("/login").requiresSecure()
-
+				.requiresChannel()
+					.antMatchers("/testController", "/checkout").requiresSecure();
 	}
 	
 	@Bean(name="passwordEncoder")
