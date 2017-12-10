@@ -34,11 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/adminLogin")
 				.and()
 				.authorizeRequests()
-					.antMatchers("/testController").hasRole("ADMIN")
+					.antMatchers("/testController", "/backoffice").hasRole("ADMIN")
 					.anyRequest().permitAll()
 				.and()
 				.requiresChannel()
-					.antMatchers("/testController", "/checkout").requiresSecure();
+					.antMatchers("/testController", "/checkout", "/adminLogin").requiresSecure();
 	}
 	
 	@Bean(name="passwordEncoder")
