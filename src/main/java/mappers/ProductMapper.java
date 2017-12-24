@@ -21,7 +21,7 @@ public class ProductMapper {
 	}
 
 	public static Collection<ProductData> mapCollection(Collection<Product> productModels) {
-		
+
 		Collection<ProductData> result = new ArrayList<>();
 
 		for (Product productModel : productModels) {

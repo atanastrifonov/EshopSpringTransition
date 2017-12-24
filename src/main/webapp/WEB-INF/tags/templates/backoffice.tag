@@ -13,7 +13,7 @@
 	    <meta name="description" content="">
 	    <meta name="author" content="">
 	
-	    <title>Eshop - Back office</title>
+	    <title>Eshop - BackOffice</title>
 	    
         <!-- Bootstrap Core CSS -->
 	    <link rel="stylesheet" type="text/css" href="<c:url value="/css/admin/bootstrap/bootstrap.css"/>">

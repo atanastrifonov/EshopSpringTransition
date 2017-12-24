@@ -27,8 +27,8 @@ public class DefaultCategoryFacade implements CategoryFacade {
 
 	@Override
 	public List<CategoryData> getCategories() {
-		List<Category> categoryEntities = categoryService.getAllCategories();
-		return CategoryMapper.mapCollection(categoryEntities);
+		List<Category> categoryModels = categoryService.getAllCategories();
+		return CategoryMapper.mapCollection(categoryModels);
 	}
 
 }

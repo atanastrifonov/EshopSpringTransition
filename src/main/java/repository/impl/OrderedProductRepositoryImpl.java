@@ -25,6 +25,7 @@ public class OrderedProductRepositoryImpl implements OrderedProductRepository {
 		em.persist(orderedProduct);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<OrderedProduct> findAllByOrderId(Object orderId) {
 		return em.createNamedQuery("OrderedProduct.findByCustomerOrderId").setParameter("customerOrderId", orderId).getResultList();

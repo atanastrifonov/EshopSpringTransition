@@ -9,7 +9,6 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import cart.ShoppingCart;
@@ -64,7 +63,7 @@ public class DefaultOrderService implements OrderService {
 		Random random = new Random();
 		int i = random.nextInt(999999999);
 		order.setConfirmationNumber(i);
-		order.setStatus("PENDING");
+		order.setStatus("NEW");
 
 		customerOrderRepository.addOrder(order);
 		return order;
@@ -82,11 +81,11 @@ public class DefaultOrderService implements OrderService {
 			OrderedProductPK orderedProductPK = new OrderedProductPK();
 			orderedProductPK.setCustomerOrderId(order.getId());
 			orderedProductPK.setProductId(productId);
-			
-//			CONSTRAINT VIOLATION EXCEPTION TRIGGER TEST!!!
-//			orderedProductPK.setCustomerOrderId(1);
-//			orderedProductPK.setProductId(1);
-//			CONSTRAINT VIOLATION EXCEPTION TRIGGER TEST!!!
+
+			// CONSTRAINT VIOLATION EXCEPTION TRIGGER TEST!!!
+			// orderedProductPK.setCustomerOrderId(1);
+			// orderedProductPK.setProductId(1);
+			// CONSTRAINT VIOLATION EXCEPTION TRIGGER TEST!!!
 
 			// create ordered item using PK object
 			OrderedProduct orderedItem = new OrderedProduct(orderedProductPK);
@@ -129,6 +128,11 @@ public class DefaultOrderService implements OrderService {
 		orderMap.put("products", products);
 
 		return orderMap;
+	}
+
+	@Override
+	public List<CustomerOrder> getAllPendingOrders() {
+		return customerOrderRepository.getAllPendingOrders();
 	}
 
 }

@@ -11,6 +11,8 @@ public class ProductData {
 	private String description;
 	private Date lastUpdate;
 	
+	// TODO: Use builder pattern for this one
+	
 	public int getId() {
 		return id;
 	}
