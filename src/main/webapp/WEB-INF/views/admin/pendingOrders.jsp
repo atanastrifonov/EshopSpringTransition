@@ -35,7 +35,7 @@
 	                                        <td><c:out value="${pendingOrder.amount}"/></td>
 	                                        <td><c:out value="${pendingOrder.dateCreated}"/></td>
 	                                        <td class="center"><c:out value="${pendingOrder.confirmationNumber}"/></td>
-	                                        <td class="center"><c:out value="${pendingOrder.status}"/></td>
+	                                        <td class="center"><a href="<c:url value='/backoffice/orders/orderId'/>"><c:out value="${pendingOrder.status}"/></a></td>
 	                                    </tr>
                                     </c:forEach>
                                 </tbody>
