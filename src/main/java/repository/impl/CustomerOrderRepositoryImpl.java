@@ -45,4 +45,8 @@ public class CustomerOrderRepositoryImpl implements CustomerOrderRepository {
 
 	}
 
+	@Override
+	public void updateOrder(CustomerOrder order) {
+		em.merge(order);		
+	}
 }

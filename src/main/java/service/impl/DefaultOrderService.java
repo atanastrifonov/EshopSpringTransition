@@ -135,4 +135,11 @@ public class DefaultOrderService implements OrderService {
 		return customerOrderRepository.getAllPendingOrders();
 	}
 
+	@Override
+	public void updateOrder(int orderId, String status) {
+		CustomerOrder order = customerOrderRepository.getOrderById(orderId);
+		order.setStatus(status);
+		customerOrderRepository.updateOrder(order);
+	}
+
 }

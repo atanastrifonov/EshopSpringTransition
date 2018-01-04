@@ -38,4 +38,8 @@ public class DefaultOrderFacade implements OrderFacade {
 		return OrderMapper.mapCollection(orderModels);
 	}
 
+	@Override
+	public void updateOrder(int orderId, String status) {
+		orderService.updateOrder(orderId, status);		
+	}
 }

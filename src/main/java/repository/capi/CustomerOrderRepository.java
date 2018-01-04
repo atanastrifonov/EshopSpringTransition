@@ -11,4 +11,6 @@ public interface CustomerOrderRepository {
 	public CustomerOrder getOrderById(int orderId);
 	
 	public List<CustomerOrder> getAllPendingOrders();
+	
+	public void updateOrder(CustomerOrder order);
 }

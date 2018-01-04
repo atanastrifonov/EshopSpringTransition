@@ -11,4 +11,5 @@ public interface OrderFacade {
 	public int placeOrder(CustomerData customerData, ShoppingCart cart);
 	public Map getOrderDetails(int orderId);
 	public List<OrderData> getAllPendingOrders();
+	public void updateOrder(int orderId, String status);
 }

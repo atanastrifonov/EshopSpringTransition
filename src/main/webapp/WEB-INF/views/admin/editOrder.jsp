@@ -1,5 +1,9 @@
 <%@ taglib tagdir="/WEB-INF/tags/templates" prefix="templates" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <templates:backoffice>
         <div id="page-wrapper">
@@ -9,6 +13,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -18,7 +23,22 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                            	<form role="form">
+                            	<c:url value='editOrder' var="formAction" />
+                            	<sf:form role="form" commandName="editOrderForm" action="${formAction}" method="POST">
+                            	
+                            	 	<c:if test = "${isUpdateSuccessful eq true}">
+			                 	 	     <div class="alert alert-success alert-dismissable">
+			                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			                                Status has been successfully updated!
+			                            </div>
+		                            </c:if>		                            
+		                            <c:if test = "${hasErrors eq true}">
+	                            	    <div class="alert alert-danger alert-dismissable">
+			                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			                                Errors in updating status!
+	                           	 		</div>
+                           	 		</c:if>    
+                          	 		                  	
 	                                <div class="col-lg-6">                                    
 	                                        <div class="form-group">
 	                                            <label>Order Id</label>
@@ -38,13 +58,13 @@
 	                                        </div>
 	                                        <div class="form-group">
 	                                            <label>Order Status</label>
-	                                            <select class="form-control">
-	                                                <option <c:if test="${orderRecord.status=='NEW'}">selected</c:if>>NEW</option>
-	                                                <option <c:if test="${orderRecord.status=='ACCEPTED'}">selected</c:if>>ACCEPTED</option>
-	                                                <option <c:if test="${orderRecord.status=='DENIED'}">selected</c:if>>DENIED</option>
-	                                                <option <c:if test="${orderRecord.status=='DISPATCHED'}">selected</c:if>>DISPATCHED</option>
-	                                                <option <c:if test="${orderRecord.status=='COMPLETED'}">selected</c:if>>COMPLETED</option>
-	                                            </select>
+												<sf:select path="status" class="form-control">
+	                                                <option value="NEW" <c:if test="${orderRecord.status=='NEW'}">selected</c:if>>NEW</option>
+	                                                <option value="ACCEPTED" <c:if test="${orderRecord.status=='ACCEPTED'}">selected</c:if>>ACCEPTED</option>
+	                                                <option value="DENIED" <c:if test="${orderRecord.status=='DENIED'}">selected</c:if>>DENIED</option>
+	                                                <option value="DISPATCHED" <c:if test="${orderRecord.status=='DISPATCHED'}">selected</c:if>>DISPATCHED</option>
+	                                                <option value="COMPLETED" <c:if test="${orderRecord.status=='COMPLETED'}">selected</c:if>>COMPLETED</option>
+	                                            </sf:select>
 	                                        </div>	                                    
 	                                </div>
 	                                <!-- /.col-lg-6 (nested) -->
@@ -82,11 +102,13 @@
 	                                </div>
                                     <!-- /.col-lg-6 (nested) -->
 	                                <div class="col-lg-6">
-		                                <button type="submit" class="btn btn-default">Submit Button</button>
+		                                <button type="submit" class="btn btn-default">Change Status</button>
 	                                    <a href="<c:url value='/backoffice/orders/pending'/>" class="btn btn-default">Go Back</a>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
-                                </form>                                                              
+                                    
+                                    <sf:hidden path="orderId" value="${orderRecord.id}"/>
+                                </sf:form>                                                              
                             </div>
                             <!-- /.row (nested) -->
                         </div>
