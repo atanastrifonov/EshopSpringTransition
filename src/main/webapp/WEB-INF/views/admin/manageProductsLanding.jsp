@@ -1,4 +1,5 @@
 <%@ taglib tagdir="/WEB-INF/tags/templates" prefix="templates" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <templates:backoffice>
         <!-- Page Content -->
@@ -19,9 +20,11 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <p>
-                                <a href="#" class="btn btn-primary btn-lg btn-block">Block level button</a>
-                            </p>
+                        	<c:forEach var="category" items="${categories}">
+	                            <p>
+	                                <a href="#" class="btn btn-primary btn-lg btn-block">${category.name}</a>
+	                            </p>
+                            </c:forEach>
                         </div>
                         <!-- /.panel-body -->
                     </div>

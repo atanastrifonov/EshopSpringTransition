@@ -29,6 +29,6 @@ public class HomeController implements ServletContextAware {
 	 */
 	@Override
 	public void setServletContext(ServletContext servletContext) {
-		servletContext.setAttribute("categories", categoryFacade.getCategories());		
+		servletContext.setAttribute("categories", categoryFacade.getStorefrontCategories());		
 	}
 }

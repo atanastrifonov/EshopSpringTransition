@@ -7,5 +7,6 @@ import dto.CategoryProductData;
 
 public interface CategoryFacade {
 	public CategoryProductData getCategoryProductById(Short id);
-	public List<CategoryData> getCategories();
+	public List<CategoryData> getAllCategories();
+	public List<CategoryData> getStorefrontCategories();
 }

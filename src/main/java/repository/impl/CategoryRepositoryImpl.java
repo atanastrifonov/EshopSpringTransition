@@ -18,16 +18,25 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
+	public static final String DELETED_CATEGORY_NAME = "Deleted";
+
 	@Override
 	public Category getCategoryById(Short id) {
 		return em.find(Category.class, id);
 	}
-	
+
 	@Override
 	public List<Category> findAllCategories() {
 		CriteriaQuery<Category> cq = em.getCriteriaBuilder().createQuery(Category.class);
-        cq.select(cq.from(Category.class));
-        return em.createQuery(cq).getResultList();
+		cq.select(cq.from(Category.class));
+		return em.createQuery(cq).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Category> findStorefrontCategories() {
+		String theQuery = "SELECT c FROM Category c WHERE NOT c.name = :name";
+		return em.createQuery(theQuery).setParameter("name", DELETED_CATEGORY_NAME).getResultList();
 	}
 }

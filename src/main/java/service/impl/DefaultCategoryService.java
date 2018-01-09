@@ -25,4 +25,9 @@ public class DefaultCategoryService implements CategoryService {
 		return categoryRepository.findAllCategories();
 	}
 
+	@Override
+	public List<Category> getStorefrontCategories() {
+		return categoryRepository.findStorefrontCategories();
+	}
+
 }

@@ -24,10 +24,16 @@ public class DefaultCategoryFacade implements CategoryFacade {
 		Category categoryModel = categoryService.getCategoryById(id);
 		return CategoryProductMapper.map(categoryModel);
 	}
+	
+	@Override
+	public List<CategoryData> getAllCategories() {
+		List<Category> categoryModels = categoryService.getAllCategories();
+		return CategoryMapper.mapCollection(categoryModels);
+	}
 
 	@Override
-	public List<CategoryData> getCategories() {
-		List<Category> categoryModels = categoryService.getAllCategories();
+	public List<CategoryData> getStorefrontCategories() {
+		List<Category> categoryModels = categoryService.getStorefrontCategories();
 		return CategoryMapper.mapCollection(categoryModels);
 	}
 
