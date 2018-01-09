@@ -10,8 +10,6 @@ public class OrderData {
 	private Date dateCreated;
 	private int confirmationNumber;
 	private String status;
-
-	// TODO: Use builder pattern for this one
 	
 	public Integer getId() {
 		return id;

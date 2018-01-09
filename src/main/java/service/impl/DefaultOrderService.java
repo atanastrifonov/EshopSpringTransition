@@ -22,6 +22,7 @@ import repository.capi.CustomerOrderRepository;
 import repository.capi.OrderedProductRepository;
 import repository.capi.ProductRepository;
 import service.capi.CustomerService;
+import service.capi.EmailService;
 import service.capi.OrderService;
 
 @Component
@@ -38,6 +39,9 @@ public class DefaultOrderService implements OrderService {
 
 	@Autowired
 	ProductRepository productRepository;
+	
+	@Autowired
+	EmailService emailService;
 
 	@Override
 	@Transactional
@@ -140,6 +144,8 @@ public class DefaultOrderService implements OrderService {
 		CustomerOrder order = customerOrderRepository.getOrderById(orderId);
 		order.setStatus(status);
 		customerOrderRepository.updateOrder(order);
+		// TODO: uncomment the following line when email sending is needed
+		//emailService.sendOrderStatusChangeEmail(order);
 	}
 
 }

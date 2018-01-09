@@ -1,0 +1,14 @@
+<html>
+	<head>
+	</head>
+	<body>
+	<h3>Hi ${customer.name}</h3>
+	
+	<div>
+	   Your email address is ${customer.email} <br>
+	   And your total order amount is ${order.amount} <br>
+	   Your new order status is ${order.status}
+	   
+	</div>
+	</body>
+</html>

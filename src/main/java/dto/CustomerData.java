@@ -19,8 +19,6 @@ public class CustomerData {
 		this.cityRegion = cityRegion;
 		this.ccNumber = ccNumber;
 	}
-
-	// TODO: Use builder pattern for this one
 	
 	public Integer getId() {
 		return id;

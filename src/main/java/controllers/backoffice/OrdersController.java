@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import facade.capi.OrderFacade;
 import forms.EditOrderForm;
+import service.capi.EmailService;
 
 @Controller
 @RequestMapping("/backoffice/orders")
@@ -26,7 +27,7 @@ public class OrdersController {
 
 	@Autowired
 	OrderFacade orderFacade;
-
+	
 	@RequestMapping(value = "/pending", method = GET)
 	public String viewPendingOrders(Model model) {
 		model.addAttribute("pendingOrders", orderFacade.getAllPendingOrders());
