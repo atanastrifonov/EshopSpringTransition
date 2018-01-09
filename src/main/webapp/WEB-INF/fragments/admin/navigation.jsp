@@ -243,6 +243,18 @@
                 <li>
                     <a href="<c:url value='/backoffice/orders/pending'/>"><i class="fa fa-shopping-cart fa-fw"></i> Pending Orders</a>
                 </li>
+				<li>
+					<a href="#"><i class="fa fa-sitemap fa-fw"></i> Catalog<span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+					    <li>
+					        <a href="<c:url value='/backoffice/products'/>">Manage Products</a>
+					    </li>
+   					    <li>
+					        <a href="#">Manage Categories</a>
+					    </li>
+					</ul>
+					<!-- /.nav-second-level -->
+				</li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
