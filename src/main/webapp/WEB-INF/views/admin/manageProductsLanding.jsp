@@ -22,7 +22,7 @@
                         <div class="panel-body">
                         	<c:forEach var="category" items="${categories}">
 	                            <p>
-	                                <a href="#" class="btn btn-primary btn-lg btn-block">${category.name}</a>
+	                                <a href="<c:url value='/backoffice/products/chooseCategory?categoryId=${category.id}'/>" class="btn btn-primary btn-lg btn-block">${category.name}</a>
 	                            </p>
                             </c:forEach>
                         </div>
