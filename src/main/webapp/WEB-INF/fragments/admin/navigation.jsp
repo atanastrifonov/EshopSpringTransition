@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -214,7 +215,10 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="#" onclick="$('.logOutForm').submit()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <c:url value="/logout" var="logoutUrl" />
+					<sf:form class="logOutForm" action="${logoutUrl}" method="POST">
+					</sf:form>
                 </li>
             </ul>
             <!-- /.dropdown-user -->

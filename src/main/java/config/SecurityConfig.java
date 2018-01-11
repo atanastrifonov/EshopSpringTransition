@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/adminLogin")
 				.and()
 				.authorizeRequests()
-					.antMatchers("/testController", "/backoffice").hasRole("ADMIN")
+					.antMatchers("/testController", "/backoffice/**").hasRole("ADMIN")
 					.anyRequest().permitAll()
 				.and()
 				.requiresChannel()
