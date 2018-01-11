@@ -20,7 +20,7 @@
 	
 	    <!-- MetisMenu CSS -->
 	    <link rel="stylesheet" type="text/css" href="<c:url value="/css/admin/metisMenu/metisMenu.css"/>">
-    <c:if test="${fn:contains(pageContext.request.servletPath,'/pendingOrders.jsp') || fn:contains(pageContext.request.servletPath,'/categoryProducts.jsp')}">
+    <c:if test="${fn:contains(pageContext.request.servletPath,'/pendingOrders.jsp') || fn:contains(pageContext.request.servletPath,'/categoryProductsListing.jsp')}">
         <!-- DataTables CSS -->
     	<link rel="stylesheet" type="text/css" href="<c:url value="/css/admin/datatables-plugins/dataTables.bootstrap.css"/>">
 
@@ -52,7 +52,7 @@
 	
 	    <!-- Metis Menu Plugin JavaScript -->
 	    <script src="<c:url value="/js/admin/metisMenu/metisMenu.js"/>" type="text/javascript"></script>	    
-    <c:if test="${fn:contains(pageContext.request.servletPath,'/pendingOrders.jsp') || fn:contains(pageContext.request.servletPath,'/categoryProducts.jsp')}">
+    <c:if test="${fn:contains(pageContext.request.servletPath,'/pendingOrders.jsp') || fn:contains(pageContext.request.servletPath,'/categoryProductsListing.jsp')}">
     	<!-- DataTables JavaScript -->
 	    <script src="<c:url value="/js/admin/datatables/jquery.dataTables.min.js"/>" type="text/javascript"></script>
 	    <script src="<c:url value="/js/admin/datatables-plugins/dataTables.bootstrap.min.js"/>" type="text/javascript"></script>
