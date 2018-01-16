@@ -16,6 +16,7 @@ public class ProductMapper {
 		result.setDescription(productModel.getDescription());
 		result.setLastUpdate(productModel.getLastUpdate());
 		result.setPrice(productModel.getPrice());
+		result.setCategoryId(productModel.getCategoryId().getId());
 
 		return result;
 	}

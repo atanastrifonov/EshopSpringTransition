@@ -23,33 +23,34 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <sf:form role="form" commandName="editProductForm" method="POST">
                                         <div class="form-group">
-                                            <label>Product Name</label>
-                                            <input class="form-control">
+                                            <sf:label path="name">Product Name</sf:label>
+                                            <sf:input path="name" class="form-control" />
                                             <p class="help-block">Example block-level help text here.</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>Product Price</label>
-                                            <input class="form-control">
+                                            <sf:label path="price">Product Price</sf:label>
+                                            <sf:input path="price" class="form-control"/>
                                             <p class="help-block">Example block-level help text here.</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>Product Description</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <sf:label path="description">Product Description</sf:label>
+                                            <sf:textarea path="description" class="form-control" rows="3"></sf:textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label>Product Category</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
+                                            <sf:label path="categoryId">Product Category</sf:label>
+                                            <sf:select path="categoryId" class="form-control">
+			                                	<c:forEach var="category" items="${categories}">
+			                                		<option value="${category.id}"
+	                                					<c:if test="${editProductForm.categoryId eq category.id}">selected</c:if>>${category.name}
+                                					</option>
+			                                    </c:forEach>
+                                            </sf:select>
                                         </div>
                                         <button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
-                                    </form>
+                                    </sf:form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
