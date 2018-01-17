@@ -23,7 +23,22 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <sf:form role="form" commandName="editProductForm" method="POST">
+                                	<c:url value='editProduct' var="formAction" />
+                                    <sf:form role="form" commandName="editProductForm" action="${formAction}" method="POST">
+                                    
+                                    	<c:if test = "${isUpdateSuccessful eq true}">
+				                 	 	     <div class="alert alert-success alert-dismissable">
+				                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				                                Product has been successfully updated!
+				                            </div>
+			                            </c:if>		                            
+			                            <c:if test = "${hasErrors eq true}">
+		                            	    <div class="alert alert-danger alert-dismissable">
+				                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				                                Errors in updating product!
+		                           	 		</div>
+	                           	 		</c:if>
+                                    
                                         <div class="form-group">
                                             <sf:label path="name">Product Name</sf:label>
                                             <sf:input path="name" class="form-control" />
@@ -48,8 +63,10 @@
 			                                    </c:forEach>
                                             </sf:select>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                        <button type="submit" class="btn btn-default">Update Product</button>
+                                        <a href="<c:url value='/backoffice/products/chooseCategory?categoryId=${editProductForm.categoryId}'/>" class="btn btn-default">Go Back</a>
+                                    
+                                    	<sf:hidden path="productId"/>
                                     </sf:form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

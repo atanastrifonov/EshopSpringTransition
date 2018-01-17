@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import dto.ProductData;
+import entity.Category;
 import entity.Product;
 
 public class ProductMapper {
@@ -30,5 +31,18 @@ public class ProductMapper {
 		}
 
 		return result;
+	}
+	
+	public static Product mapSingle(ProductData productData, Category categoryModel){
+		Product productModel = new Product();
+		
+		productModel.setId(productData.getId());
+		productModel.setName(productData.getName());
+		productModel.setDescription(productData.getDescription());
+		productModel.setPrice(productData.getPrice());
+		productModel.setLastUpdate(productData.getLastUpdate());
+		productModel.setCategoryId(categoryModel);
+		
+		return productModel;
 	}
 }

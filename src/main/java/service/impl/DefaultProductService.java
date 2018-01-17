@@ -18,4 +18,8 @@ public class DefaultProductService implements ProductService{
 		return productRepository.getProductById(id);
 	}
 
+	@Override
+	public void updateProduct(Product productModel) {
+		productRepository.updateProduct(productModel);
+	}
 }

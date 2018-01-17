@@ -11,6 +11,8 @@ public class EditProductForm {
 	private String description;
 	
 	private short categoryId;
+	
+	private int productId;
 
 	public String getName() {
 		return name;
@@ -44,4 +46,11 @@ public class EditProductForm {
 		this.categoryId = categoryId;
 	}
 
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 }
