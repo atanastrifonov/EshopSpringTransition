@@ -40,14 +40,14 @@
 	                           	 		</c:if>
                                     
                                         <div class="form-group">
-                                            <sf:label path="name">Product Name</sf:label>
-                                            <sf:input path="name" class="form-control" />
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <sf:label path="name" cssErrorClass="validationError">Product Name</sf:label>
+                                            <sf:input path="name" class="form-control" cssErrorClass="validationErrorInput form-control"/>
+                                            <sf:errors path="name" element="p" cssClass="help-block validationError" />
                                         </div>
                                         <div class="form-group">
-                                            <sf:label path="price">Product Price</sf:label>
-                                            <sf:input path="price" class="form-control"/>
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <sf:label path="price" cssErrorClass="validationError">Product Price</sf:label>
+                                            <sf:input path="price" class="form-control" cssErrorClass="validationErrorInput form-control"/>
+                                            <sf:errors path="price" element="p" cssClass="help-block validationError" />
                                         </div>
                                         <div class="form-group">
                                             <sf:label path="description">Product Description</sf:label>

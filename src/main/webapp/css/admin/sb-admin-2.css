@@ -432,3 +432,15 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
+.validationError {
+	color: red;
+}
+
+.validationErrorInput {
+	border-color: red;
+}
+
+div.validationErrors {
+	background-color: #ffcccc;
+	border: 2px solid red;
+}

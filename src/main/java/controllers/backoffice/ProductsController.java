@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,15 +55,18 @@ public class ProductsController {
 	@RequestMapping(value = "/{productId}", method = GET)
 	public String viewSingleProduct(@PathVariable("productId") int productId, HttpServletRequest request, Model model) {
 		
-		ProductData product = productFacade.getProductById(productId);
-		EditProductForm editProductForm = new EditProductForm();
-		editProductForm.setProductId(product.getId());
-		editProductForm.setName(product.getName());
-		editProductForm.setPrice(product.getPrice());
-		editProductForm.setDescription(product.getDescription());
-		editProductForm.setCategoryId(product.getCategoryId());
-
-		model.addAttribute("editProductForm", editProductForm);
+		//coming as a flash attribute when there is an validation error
+		if(!model.containsAttribute("editProductForm")){
+			ProductData product = productFacade.getProductById(productId);
+			EditProductForm editProductForm = new EditProductForm();
+			editProductForm.setProductId(product.getId());
+			editProductForm.setName(product.getName());
+			editProductForm.setPrice(product.getPrice());
+			editProductForm.setDescription(product.getDescription());
+			editProductForm.setCategoryId(product.getCategoryId());
+	
+			model.addAttribute("editProductForm", editProductForm);
+		}
 		
 		List<CategoryData> categories = categoryFacade.getAllCategories();
 		model.addAttribute("categories", categories);
@@ -73,12 +76,14 @@ public class ProductsController {
 	
 	@RequestMapping(value = "/editProduct", method = RequestMethod.POST)
 	public String editSingleProduct(HttpServletRequest request, Model model,
-			@ModelAttribute("editProductForm") @Valid EditProductForm editProductForm, Errors errors,
+			@ModelAttribute("editProductForm") @Valid EditProductForm editProductForm, BindingResult binding,
 			RedirectAttributes redirectAttributes) {
 
 		String returnURL = "redirect:/backoffice/products/" + editProductForm.getProductId();
-		if (errors.hasErrors()) {
+		if (binding.hasErrors()) {
 			redirectAttributes.addFlashAttribute("hasErrors", true);
+			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.editProductForm", binding);
+			redirectAttributes.addFlashAttribute("editProductForm", editProductForm);
 
 			return returnURL;
 		}
