@@ -37,14 +37,14 @@
 	
 	                <tr class="${((iter.index % 2) != 0) ? 'lightBlue' : 'white'}">
 	                    <td>
-	                        <fmt:message key="${products[iter.index].name}"/>
+	                        <fmt:message key="${lineItems[iter.index].name}"/>
 	                    </td>
 	                    <td class="quantityColumn">
 	                        ${orderedProduct.quantity}
 	                    </td>
 	                    <td class="confirmationPriceColumn">
 	                        <fmt:formatNumber type="currency" currencySymbol="&euro; "
-	                                          value="${products[iter.index].price * orderedProduct.quantity}"/>
+	                                          value="${lineItems[iter.index].price * orderedProduct.quantity}"/>
 	                    </td>
 	                </tr>
 	

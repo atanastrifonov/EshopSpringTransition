@@ -15,10 +15,13 @@ import cart.ShoppingCart;
 import cart.ShoppingCartItem;
 import entity.Customer;
 import entity.CustomerOrder;
+import entity.LineItem;
 import entity.OrderedProduct;
 import entity.OrderedProductPK;
 import entity.Product;
+import mappers.LineItemMapper;
 import repository.capi.CustomerOrderRepository;
+import repository.capi.LineItemRepository;
 import repository.capi.OrderedProductRepository;
 import repository.capi.ProductRepository;
 import service.capi.CustomerService;
@@ -42,6 +45,9 @@ public class DefaultOrderService implements OrderService {
 	
 	@Autowired
 	EmailService emailService;
+	
+	@Autowired
+	LineItemRepository lineItemRepository;
 
 	@Override
 	@Transactional
@@ -79,12 +85,12 @@ public class DefaultOrderService implements OrderService {
 		// iterate through shopping cart and create OrderedProducts
 		for (ShoppingCartItem scItem : items) {
 
-			int productId = scItem.getProduct().getId();
+			int lineItemId = lineItemRepository.addLineItem(LineItemMapper.mapSingle(scItem.getProduct()));
 
 			// set up primary key object
 			OrderedProductPK orderedProductPK = new OrderedProductPK();
 			orderedProductPK.setCustomerOrderId(order.getId());
-			orderedProductPK.setProductId(productId);
+			orderedProductPK.setLineItemId(lineItemId);
 
 			// CONSTRAINT VIOLATION EXCEPTION TRIGGER TEST!!!
 			// orderedProductPK.setCustomerOrderId(1);
@@ -117,19 +123,19 @@ public class DefaultOrderService implements OrderService {
 		List<OrderedProduct> orderedProducts = orderedProductRepository.findAllByOrderId(orderId);
 
 		// get product details for ordered items
-		List<Product> products = new ArrayList<Product>();
+		List<LineItem> lineItems = new ArrayList<LineItem>();
 
 		for (OrderedProduct op : orderedProducts) {
 
-			Product p = (Product) productRepository.getProductById(op.getOrderedProductPK().getProductId());
-			products.add(p);
+			LineItem li = (LineItem) lineItemRepository.getLineItemById(op.getOrderedProductPK().getLineItemId());
+			lineItems.add(li);
 		}
 
 		// add each item to orderMap
 		orderMap.put("orderRecord", order);
 		orderMap.put("customer", customer);
 		orderMap.put("orderedProducts", orderedProducts);
-		orderMap.put("products", products);
+		orderMap.put("lineItems", lineItems);
 
 		return orderMap;
 	}

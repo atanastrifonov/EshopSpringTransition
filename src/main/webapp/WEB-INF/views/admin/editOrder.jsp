@@ -93,7 +93,7 @@
 	                                <!-- /.col-lg-6 (nested) -->
 	                                <div class="col-lg-6">
                                 		<h3>Products</h3>
-                                		<c:forEach var="product" items="${products}">
+                                		<c:forEach var="product" items="${lineItems}">
 	                   	                    <div class="form-group">
 	                                            <label>${product.name}</label>
 	                                            <p class="form-control-static"><b><i>Price :</i></b> ${product.price}</p>

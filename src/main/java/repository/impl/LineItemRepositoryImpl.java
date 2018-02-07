@@ -6,23 +6,26 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import entity.Product;
-import repository.capi.ProductRepository;
+import entity.LineItem;
+import repository.capi.LineItemRepository;
 
 @Repository
 @Transactional
-public class ProductRepositoryImpl implements ProductRepository{
-	
+public class LineItemRepositoryImpl implements LineItemRepository {
+
 	@PersistenceContext
 	private EntityManager em;
-		
+	
 	@Override
-	public Product getProductById(Integer id) {
-		return em.find(Product.class, id);
+	public LineItem getLineItemById(Integer id) {
+		return em.find(LineItem.class, id);
 	}
 
 	@Override
-	public void updateProduct(Product product) {
-		em.merge(product);
+	public int addLineItem(LineItem lineItem) {
+		em.persist(lineItem);
+		em.flush();
+		return lineItem.getId();
 	}
+
 }

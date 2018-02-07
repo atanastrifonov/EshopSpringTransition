@@ -94,7 +94,7 @@ public class CheckoutController {
 
                 // place order details in request scope
                 model.addAttribute("customer", orderMap.get("customer"));
-                model.addAttribute("products", orderMap.get("products"));
+                model.addAttribute("lineItems", orderMap.get("lineItems"));
                 model.addAttribute("orderRecord", orderMap.get("orderRecord"));
                 model.addAttribute("orderedProducts", orderMap.get("orderedProducts"));
 

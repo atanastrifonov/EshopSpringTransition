@@ -42,7 +42,7 @@ public class OrdersController {
 
 		// place order details in request scope
 		model.addAttribute("customer", orderMap.get("customer"));
-		model.addAttribute("products", orderMap.get("products"));
+		model.addAttribute("lineItems", orderMap.get("lineItems"));
 		model.addAttribute("orderRecord", orderMap.get("orderRecord"));
 				
 		// prepare the form
