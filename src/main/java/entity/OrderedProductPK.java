@@ -20,15 +20,15 @@ public class OrderedProductPK implements Serializable {
     @Column(name = "customer_order_id")
     private int customerOrderId;
     @Basic(optional = false)
-    @Column(name = "product_id")
-    private int productId;
+    @Column(name = "line_item_id")
+    private int lineItemId;
 
     public OrderedProductPK() {
     }
 
-    public OrderedProductPK(int customerOrderId, int productId) {
+    public OrderedProductPK(int customerOrderId, int lineItemId) {
         this.customerOrderId = customerOrderId;
-        this.productId = productId;
+        this.lineItemId = lineItemId;
     }
 
     public int getCustomerOrderId() {
@@ -39,19 +39,19 @@ public class OrderedProductPK implements Serializable {
         this.customerOrderId = customerOrderId;
     }
 
-    public int getProductId() {
-        return productId;
+    public int getLineItemId() {
+        return lineItemId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setLineItemId(int lineItemId) {
+        this.lineItemId = lineItemId;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) customerOrderId;
-        hash += (int) productId;
+        hash += (int) lineItemId;
         return hash;
     }
 
@@ -65,7 +65,7 @@ public class OrderedProductPK implements Serializable {
         if (this.customerOrderId != other.customerOrderId) {
             return false;
         }
-        if (this.productId != other.productId) {
+        if (this.lineItemId != other.lineItemId) {
             return false;
         }
         return true;
@@ -73,7 +73,7 @@ public class OrderedProductPK implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.OrderedProductPK[customerOrderId=" + customerOrderId + ", productId=" + productId + "]";
+        return "entity.OrderedProductPK[customerOrderId=" + customerOrderId + ", lineItemId=" + lineItemId + "]";
     }
 
 }
