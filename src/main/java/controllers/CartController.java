@@ -64,7 +64,7 @@ public class CartController {
 	public String updateCart(HttpServletRequest request, @Valid UpdateProductInCartForm productForm, Errors errors){
 		
 		if(errors.hasErrors()){
-			//handle them
+			//TODO: handle them
 		}
 		
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
