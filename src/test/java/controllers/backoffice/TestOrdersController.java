@@ -30,7 +30,7 @@ public class TestOrdersController {
 	
 	private OrdersController controller;
 	private MockMvc mockMvc;
-	OrderFacade mockOrderFacade;
+	private OrderFacade mockOrderFacade;
 	
 	public static final int ORDER_ID = 1;
 	public static final String STATUS_ACCEPTED = "ACCEPTED";
@@ -46,11 +46,12 @@ public class TestOrdersController {
 	public void testViewPendingOrders() throws Exception{
 		when(this.mockOrderFacade.getAllPendingOrders()).thenReturn(new ArrayList<OrderData>());
 		
-		ReflectionTestUtils.setField(this.controller, "orderFacade", mockOrderFacade);
+		ReflectionTestUtils.setField(this.controller, "orderFacade", this.mockOrderFacade);
 		
 		this.mockMvc.perform(get("/backoffice/orders/pending"))
 			.andExpect(view().name("admin/pendingOrders"))
 			.andExpect(model().attributeExists("pendingOrders"));
+		verify(this.mockOrderFacade, times(1)).getAllPendingOrders();
 	}
 	
 	@Test
@@ -63,7 +64,7 @@ public class TestOrdersController {
 
 		when(mockOrderFacade.getOrderDetails(ORDER_ID)).thenReturn(orderMap);
 
-		ReflectionTestUtils.setField(this.controller, "orderFacade", mockOrderFacade);
+		ReflectionTestUtils.setField(this.controller, "orderFacade", this.mockOrderFacade);
 		
 		this.mockMvc.perform(get("/backoffice/orders/" + ORDER_ID))
 		.andExpect(view().name("admin/editOrder"))
@@ -75,7 +76,7 @@ public class TestOrdersController {
 	
 	@Test
 	public void testEditSingleOrder() throws Exception{
-		ReflectionTestUtils.setField(this.controller, "orderFacade", mockOrderFacade);
+		ReflectionTestUtils.setField(this.controller, "orderFacade", this.mockOrderFacade);
 		
 		//happy case
 		this.mockMvc.perform(post("/backoffice/orders//editOrder")
@@ -85,7 +86,7 @@ public class TestOrdersController {
 		.andExpect(flash().attributeExists("isUpdateSuccessful"))
 		.andExpect(flash().attribute("isUpdateSuccessful", true));
 		
-		verify(this.mockOrderFacade, times(1)).updateOrder(ORDER_ID, STATUS_ACCEPTED);;
+		verify(this.mockOrderFacade, times(1)).updateOrder(ORDER_ID, STATUS_ACCEPTED);
 		
 		//error case
 		this.mockMvc.perform(post("/backoffice/orders//editOrder")
