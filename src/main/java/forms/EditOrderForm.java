@@ -1,5 +1,6 @@
 package forms;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class EditOrderForm {
@@ -8,6 +9,7 @@ public class EditOrderForm {
 	private String status;
 
 	@NotNull
+	@Min(value = 1)
 	private int orderId;
 
 	public String getStatus() {

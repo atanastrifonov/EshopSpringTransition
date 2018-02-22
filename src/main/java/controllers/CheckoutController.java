@@ -42,6 +42,7 @@ public class CheckoutController {
 		return "checkout";
 	}
 
+	//TODO: change the view forward to redirect... just in case.
 	@RequestMapping(value = "/purchase", method = RequestMethod.POST)
 	public String purchase(HttpServletRequest request, Model model,
 			@ModelAttribute("customerDetailsForm") @Valid CustomerDetailsForm customerDetailsForm, Errors errors) {

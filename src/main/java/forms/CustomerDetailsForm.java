@@ -10,7 +10,7 @@ public class CustomerDetailsForm {
 	private String name;
 	
 	@NotNull
-	@Size(min=2, max=16, message="{email.size.error}")
+	@Size(min=2, max=32, message="{email.size.error}")
 	private String email;
 	
 	@NotNull
